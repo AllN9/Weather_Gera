@@ -5,6 +5,18 @@ bot = telebot.TeleBot('6391115122:AAGbHlcSycIYWC7pdF2VmnDHW3ePPCbqLyo');
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
+    """
+    Данная функция позволяет получать сообщения от пользователя и отпралять ответ.
+    Args:
+        message: Сообщение от пользователя.
+    Returns:
+        Сообщение пользователю.
+    Examples:
+        >>> get_text_messages('/start')
+        'Привет, Я подсказываю температуру на улице, напиши желаемый город!'
+        >>> get_text_messages('Моська')
+        'Такого города нет, напишите другой!'
+    """
     if message.text == "/start":
         bot.send_message(message.from_user.id, "Привет, Я подсказываю температуру на улице, напиши желаемый город!")
     else:
